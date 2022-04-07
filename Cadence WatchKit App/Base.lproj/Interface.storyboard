@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="19529" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+    <device id="watch38"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="19514"/>
+    </dependencies>
+    <scenes>
+        <!--Cadence-->
+        <scene sceneID="aou-V4-d1y">
+            <objects>
+                <controller title="Cadence" backgroundImage="watchbg" id="AgC-eL-Hgc" customClass="InterfaceController" customModule="Cadence_WatchKit_App" customModuleProvider="target">
+                    <items>
+                        <group width="1" height="1" alignment="left" layout="overlap" id="dWG-2r-e2Z">
+                            <items>
+                                <group width="1" height="0.69999999999999996" alignment="center" id="8Qn-C9-xzR">
+                                    <items>
+                                        <picker width="1" height="1" alignment="right" verticalAlignment="center" style="sequence" id="wlB-qE-jCy">
+                                            <connections>
+                                                <action selector="pickerSelectedItemChangedWithValue:" destination="AgC-eL-Hgc" id="QuA-Tv-mjU"/>
+                                            </connections>
+                                        </picker>
+                                        <group width="1" height="0.90000000000000002" alignment="center" verticalAlignment="center" layout="overlap" id="TcU-rU-EN9">
+                                            <items>
+                                                <imageView width="1" height="1" alignment="center" verticalAlignment="center" contentMode="scaleAspectFit" id="U70-KJ-uWt"/>
+                                                <label width="1" height="1" alignment="center" verticalAlignment="center" hidden="YES" text="---" textAlignment="center" id="2aH-o5-7Sn">
+                                                    <fontDescription key="font" type="system" pointSize="63"/>
+                                                </label>
+                                            </items>
+                                        </group>
+                                    </items>
+                                </group>
+                                <button width="0.90000000000000002" height="0.25" alignment="center" verticalAlignment="bottom" title="Start" enabled="NO" id="dJi-4Q-bSa">
+                                    <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <fontDescription key="font" type="boldSystem" pointSize="24"/>
+                                    <connections>
+                                        <action selector="startOrStop" destination="AgC-eL-Hgc" id="JyF-zd-AaW"/>
+                                    </connections>
+                                </button>
+                                <group width="1" height="1" alignment="center" verticalAlignment="center" hidden="YES" alpha="0.5" layout="vertical" id="67b-f3-3gL">
+                                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </group>
+                                <group width="0.90000000000000002" height="0.29999999999999999" alignment="right" id="3ds-Rh-KkD">
+                                    <items>
+                                        <label width="0.80000000000000004" height="1" alignment="center" text="Crown sets  cadence" textAlignment="right" numberOfLines="2" id="36Y-tD-NV2">
+                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <fontDescription key="font" type="boldSystem" pointSize="16"/>
+                                        </label>
+                                        <label width="0.20000000000000001" height="1" alignment="right" verticalAlignment="center" text="  ➤" textAlignment="left" id="ogK-c1-JEo">
+                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <fontDescription key="font" type="boldSystem" pointSize="16"/>
+                                        </label>
+                                    </items>
+                                </group>
+                            </items>
+                        </group>
+                    </items>
+                    <connections>
+                        <outlet property="blGroup" destination="67b-f3-3gL" id="fBl-m2-ovi"/>
+                        <outlet property="bpmImage" destination="U70-KJ-uWt" id="3ZG-Eg-VWn"/>
+                        <outlet property="bpmLabel" destination="2aH-o5-7Sn" id="137-v9-xKX"/>
+                        <outlet property="bpmPicker" destination="wlB-qE-jCy" id="xYl-RF-KFx"/>
+                        <outlet property="startStopButton" destination="dJi-4Q-bSa" id="Qsg-FB-Mlp"/>
+                        <outlet property="wtGroup" destination="3ds-Rh-KkD" id="xHy-5I-84J"/>
+                        <segue destination="8is-c9-g5c" kind="relationship" relationship="nextPage" id="ijD-TD-AiA"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="-232" y="326"/>
+        </scene>
+        <!--Static Notification Interface Controller-->
+        <scene sceneID="AEw-b0-oYE">
+            <objects>
+                <notificationController id="YCC-NB-fut">
+                    <items>
+                        <label alignment="left" text="Alert Label" numberOfLines="0" id="IdU-wH-bcW"/>
+                    </items>
+                    <notificationCategory key="notificationCategory" identifier="myCategory" id="JfB-70-Muf"/>
+                    <connections>
+                        <outlet property="notificationAlertLabel" destination="IdU-wH-bcW" id="JKC-fr-R95"/>
+                        <segue destination="4sK-HA-Art" kind="relationship" relationship="dynamicNotificationInterface" id="kXh-Jw-8B1"/>
+                        <segue destination="eXb-UN-Cd0" kind="relationship" relationship="dynamicInteractiveNotificationInterface" id="mpB-YA-K8N"/>
+                    </connections>
+                </notificationController>
+            </objects>
+            <point key="canvasLocation" x="220" y="643"/>
+        </scene>
+        <!--Notification Controller-->
+        <scene sceneID="ZPc-GJ-vnh">
+            <objects>
+                <controller id="4sK-HA-Art" customClass="NotificationController" customModule="Cadence_WatchKit_App" customModuleProvider="target"/>
+            </objects>
+            <point key="canvasLocation" x="468" y="643"/>
+        </scene>
+        <!--Limits-->
+        <scene sceneID="owc-cx-tDU">
+            <objects>
+                <controller title="Limits" backgroundImage="watchbg" id="8is-c9-g5c" customClass="LimitsController" customModule="Cadence_WatchKit_Extension">
+                    <items>
+                        <group width="1" alignment="center" verticalAlignment="center" id="Cgc-vf-ZP0">
+                            <items>
+                                <label width="0.5" height="1" alignment="left" verticalAlignment="center" text="± 10" textAlignment="right" id="3uh-4D-g5d">
+                                    <fontDescription key="font" type="system" pointSize="38"/>
+                                </label>
+                                <group width="0.40000000000000002" height="0.80000000000000004" alignment="right" verticalAlignment="center" layout="vertical" id="9Sp-12-G3f">
+                                    <items>
+                                        <button width="1" alignment="center" title="+" id="uBP-VT-i2f">
+                                            <fontDescription key="font" type="system" pointSize="39"/>
+                                            <connections>
+                                                <action selector="upAction" destination="8is-c9-g5c" id="p56-xY-b3O"/>
+                                            </connections>
+                                        </button>
+                                        <button width="1" alignment="center" verticalAlignment="bottom" title="-" id="GoJ-hy-Lzq">
+                                            <fontDescription key="font" type="system" pointSize="39"/>
+                                            <connections>
+                                                <action selector="downAction" destination="8is-c9-g5c" id="l2x-9c-gKx"/>
+                                            </connections>
+                                        </button>
+                                    </items>
+                                </group>
+                            </items>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </group>
+                    </items>
+                    <connections>
+                        <outlet property="bpmLabel" destination="3uh-4D-g5d" id="BGa-ub-r0y"/>
+                        <outlet property="downButton" destination="GoJ-hy-Lzq" id="oft-9B-yyy"/>
+                        <outlet property="upButton" destination="uBP-VT-i2f" id="McL-1r-YA2"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="177" y="326"/>
+        </scene>
+        <!--Notification Controller-->
+        <scene sceneID="Niz-AI-uX2">
+            <objects>
+                <controller id="eXb-UN-Cd0" customClass="NotificationController" customModule="Cadence_WatchKit_App" customModuleProvider="target"/>
+            </objects>
+            <point key="canvasLocation" x="468" y="345"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="watchbg" width="156" height="195"/>
+    </resources>
+</document>
